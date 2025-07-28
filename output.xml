@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.1 (Python 3.13.3 on win32)" generated="2025-07-29T00:42:05.732404" rpa="false" schemaversion="5">
+<suite id="s1" name="Token" source="C:\robotapi\token.robot">
+<test id="s1-t1" name="Plano de testes" line="28">
+<kw name="Step 1: Criar um token com os parametros (DICTIONARY)">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-07-29T00:42:06.367415" level="INFO">${data} = {'username': 'admin', 'password': 'password123'}</msg>
+<var>${data}</var>
+<arg>username=admin</arg>
+<arg>password=password123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-07-29T00:42:06.367006" elapsed="0.000470"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-07-29T00:42:06.367940" level="INFO">${data} = {'username': 'admin', 'password': 'password123'}</msg>
+<arg>${data}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-07-29T00:42:06.367673" elapsed="0.000332"/>
+</kw>
+<status status="PASS" start="2025-07-29T00:42:06.366246" elapsed="0.001851"/>
+</kw>
+<kw name="Step 2: Fazer a chamada, o response vai receber o resultado do request">
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2025-07-29T00:42:07.165554" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
+ path_url=/auth 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"username": "admin", "password": "password123"}' 
+ </msg>
+<msg time="2025-07-29T00:42:07.165886" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
+ status=200, reason=OK 
+ headers={'Content-Length': '27', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 28 Jul 2025 23:42:07 GMT', 'Etag': 'W/"1b-zX/e7aJLYA0KMzdjuLD9L5lp0f4"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=ndMjyH6%2BJw%2FmBG1EuD9AxeC6mRtSqBgeAOtctS9%2B5cc%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1753746127"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=ndMjyH6%2BJw%2FmBG1EuD9AxeC6mRtSqBgeAOtctS9%2B5cc%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1753746127"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body={"token":"be9325b3f14699a"} 
+ </msg>
+<msg time="2025-07-29T00:42:07.166249" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BaseURl}/auth</arg>
+<arg>json=${data}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2025-07-29T00:42:06.368937" elapsed="0.797392"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-07-29T00:42:07.167260" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-07-29T00:42:07.166715" elapsed="0.000651"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.ok}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-07-29T00:42:07.167605" elapsed="0.001183"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-07-29T00:42:07.169852" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-07-29T00:42:07.169039" elapsed="0.000963"/>
+</kw>
+<status status="PASS" start="2025-07-29T00:42:06.368594" elapsed="0.801566"/>
+</kw>
+<kw name="Step 3: Pegar a informacao da resposta">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-29T00:42:07.172268" level="INFO">${data_resp} = {'token': 'be9325b3f14699a'}</msg>
+<var>${data_resp}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-29T00:42:07.171376" elapsed="0.000956"/>
+</kw>
+<kw name="Log Dictionary" owner="Collections">
+<msg time="2025-07-29T00:42:07.172786" level="INFO">Dictionary has one item:
+token: be9325b3f14699a</msg>
+<arg>${data_resp}</arg>
+<doc>Logs the size and contents of the ``dictionary`` using given ``level``.</doc>
+<status status="PASS" start="2025-07-29T00:42:07.172542" elapsed="0.000343"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-07-29T00:42:07.173457" level="INFO">${data_resp} = {'token': 'be9325b3f14699a'}</msg>
+<arg>${data_resp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-07-29T00:42:07.173080" elapsed="0.000462"/>
+</kw>
+<status status="PASS" start="2025-07-29T00:42:07.170840" elapsed="0.002820"/>
+</kw>
+<kw name="Step 4: Printar a informacao do token e validar">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-29T00:42:07.174960" level="INFO">${token} = be9325b3f14699a</msg>
+<var>${token}</var>
+<arg>${data_resp}</arg>
+<arg>token</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-29T00:42:07.174618" elapsed="0.000397"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-29T00:42:07.175453" level="INFO">seu token é: be9325b3f14699a</msg>
+<arg>seu token é: ${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-29T00:42:07.175209" elapsed="0.000337"/>
+</kw>
+<status status="PASS" start="2025-07-29T00:42:07.174182" elapsed="0.001472"/>
+</kw>
+<status status="PASS" start="2025-07-29T00:42:06.364677" elapsed="0.811467"/>
+</test>
+<status status="PASS" start="2025-07-29T00:42:05.734726" elapsed="1.445995"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Token" id="s1" pass="1" fail="0" skip="0">Token</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
