@@ -17,5 +17,5 @@ steps:
         use: action/upload-artifact2@v2
         if: always()
         with:
-          name: robot-report
+          name: robotReport
           path: reports
