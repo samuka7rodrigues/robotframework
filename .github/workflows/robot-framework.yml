@@ -1,5 +1,5 @@
 name: Testes robot framework
-on: [push,pull_request]
+on: [push, pull_request]
 
 jobs:
   Testes:
@@ -9,13 +9,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Robot Framework
+      - name: Run Robot Framework
         uses: joonvena/robotframework-docker-action@v1.0
         with:
-          robot_reports_dir: 'reports' #Location of report output from test execution
+          robot_reports_dir: 'reports'
 
       - name: Upload Results
-        uses: actions/Upload-artifact@v2
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: Report robot
