@@ -3,7 +3,11 @@ Library  RequestsLibrary
 Library  Collections  #validar as collections do insomnia
 
 *** Keywords ***
+<<<<<<< HEAD
 Buscar reserva por arguments
+=======
+Buscar reserva
+>>>>>>> bc41871f0458d542212415367b3d0f9611fd09d9
     [Arguments]    ${booking_number}
     ${response}=   GET      https://restful-booker.herokuapp.com/booking/${booking_number}
     [Return]       ${response}
