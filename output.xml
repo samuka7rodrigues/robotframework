@@ -1,53 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.1 (Python 3.13.3 on win32)" generated="2025-07-30T20:06:22.243133" rpa="false" schemaversion="5">
-<suite id="s1" name="Buscarreserva" source="C:\robotapi\buscarreserva.robot">
-<test id="s1-t1" name="Cenário 1: Consultar as reservas cadastradas por ID" line="6">
+<robot generator="Robot 7.3.1 (Python 3.13.3 on win32)" generated="2025-07-30T20:43:37.378164" rpa="false" schemaversion="5">
+<suite id="s1" name="buscareservaKeyword" source="C:\robotapi\buscareservaKeyword.robot">
+<test id="s1-t1" name="Cenário 1: Consultar as reservas cadastradas firstname" line="12">
+<kw name="Buscar reserva">
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2025-07-30T20:06:23.281802" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/243 
+<msg time="2025-07-30T20:43:38.469067" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/243 
  path_url=/booking/243 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2025-07-30T20:06:23.281925" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/243 
+<msg time="2025-07-30T20:43:38.469188" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/243 
  status=200, reason=OK 
- headers={'Content-Length': '171', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 30 Jul 2025 19:06:23 GMT', 'Etag': 'W/"ab-MG4aCOdqq15ogV4Uqb+rfjZOkQk"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=3ve7BgAZc0mU2Wt7PxtLg26xiXkscqTRimXtrwD%2FO6U%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1753902383"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=3ve7BgAZc0mU2Wt7PxtLg26xiXkscqTRimXtrwD%2FO6U%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1753902383"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ headers={'Content-Length': '171', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 30 Jul 2025 19:43:38 GMT', 'Etag': 'W/"ab-MG4aCOdqq15ogV4Uqb+rfjZOkQk"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=IckcHVNwyPCccBP7mJoHu4rVvv7MtynF9mIImfUqbp0%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1753904618"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=IckcHVNwyPCccBP7mJoHu4rVvv7MtynF9mIImfUqbp0%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1753904618"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
  body={"firstname":"Josh","lastname":"Allen","totalprice":111,"depositpaid":true,"bookingdates":{"checkin":"2018-01-01","checkout":"2019-01-01"},"additionalneeds":"super bowls"} 
  </msg>
-<msg time="2025-07-30T20:06:23.282039" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-07-30T20:43:38.469311" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
-<arg>https://restful-booker.herokuapp.com/booking/243</arg>
+<arg>https://restful-booker.herokuapp.com/booking/${booking_number}</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2025-07-30T20:06:22.779315" elapsed="0.502745"/>
+<status status="PASS" start="2025-07-30T20:43:37.861141" elapsed="0.608193"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-07-30T20:43:38.469401" elapsed="0.000043"/>
+</return>
+<msg time="2025-07-30T20:43:38.469573" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>243</arg>
+<status status="PASS" start="2025-07-30T20:43:37.860654" elapsed="0.608938"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-07-30T20:06:23.282863" level="INFO">${firstnamevalue} = Josh</msg>
+<msg time="2025-07-30T20:43:38.470395" level="INFO">${firstnamevalue} = Josh</msg>
 <var>${firstnamevalue}</var>
 <arg>${response.json()}</arg>
 <arg>firstname</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-07-30T20:06:23.282443" elapsed="0.000440"/>
+<status status="PASS" start="2025-07-30T20:43:38.469978" elapsed="0.000440"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-30T20:06:23.283389" level="FAIL">Josh != Joao</msg>
 <arg>${firstnamevalue}</arg>
-<arg>Joao</arg>
+<arg>Josh</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="FAIL" start="2025-07-30T20:06:23.283177" elapsed="0.000323">Josh != Joao</status>
+<status status="PASS" start="2025-07-30T20:43:38.470629" elapsed="0.000135"/>
 </kw>
-<status status="FAIL" start="2025-07-30T20:06:22.778313" elapsed="0.505599">Josh != Joao</status>
+<status status="PASS" start="2025-07-30T20:43:37.859595" elapsed="0.611499"/>
 </test>
-<status status="FAIL" start="2025-07-30T20:06:22.244510" elapsed="1.040589"/>
+<test id="s1-t2" name="Cenário 2: Consultar as reservas cadastradas lastname" line="17">
+<kw name="Buscar reserva">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-07-30T20:43:38.979271" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/243 
+ path_url=/booking/243 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-30T20:43:38.979358" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/243 
+ status=200, reason=OK 
+ headers={'Content-Length': '171', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 30 Jul 2025 19:43:39 GMT', 'Etag': 'W/"ab-MG4aCOdqq15ogV4Uqb+rfjZOkQk"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=mhMz6OROaFasMUQNGR5j5cG76CYGXsjo8SWJzlMY0Zg%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1753904619"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=mhMz6OROaFasMUQNGR5j5cG76CYGXsjo8SWJzlMY0Zg%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1753904619"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body={"firstname":"Josh","lastname":"Allen","totalprice":111,"depositpaid":true,"bookingdates":{"checkin":"2018-01-01","checkout":"2019-01-01"},"additionalneeds":"super bowls"} 
+ </msg>
+<msg time="2025-07-30T20:43:38.979461" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://restful-booker.herokuapp.com/booking/${booking_number}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-07-30T20:43:38.472456" elapsed="0.507025"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-07-30T20:43:38.979546" elapsed="0.000042"/>
+</return>
+<msg time="2025-07-30T20:43:38.979695" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>243</arg>
+<status status="PASS" start="2025-07-30T20:43:38.472258" elapsed="0.507453"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-30T20:43:38.980458" level="INFO">${lastnamevalue} = Allen</msg>
+<var>${lastnamevalue}</var>
+<arg>${response.json()}</arg>
+<arg>lastname</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-30T20:43:38.980080" elapsed="0.000400"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${lastnamevalue}</arg>
+<arg>Allen</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-07-30T20:43:38.980653" elapsed="0.000120"/>
+</kw>
+<status status="PASS" start="2025-07-30T20:43:38.471861" elapsed="0.509072"/>
+</test>
+<status status="PASS" start="2025-07-30T20:43:37.380492" elapsed="1.601227"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Buscarreserva" id="s1" pass="0" fail="1" skip="0">Buscarreserva</stat>
+<stat name="buscareservaKeyword" id="s1" pass="2" fail="0" skip="0">buscareservaKeyword</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-07-30T20:43:37.371531" level="WARN">Error in file 'C:\robotapi\buscareservaKeyword.robot' on line 9: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>
