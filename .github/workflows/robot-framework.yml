@@ -3,7 +3,6 @@ on: [push,pull_request]
 
 jobs:
   Testes:
-
     runs-on: ubuntu-latest
     name: Run Robot Framework Tests
     steps:
@@ -13,9 +12,9 @@ jobs:
       - name: Robot Framework
         uses: joonvena/robotframework-docker-action@v1.0
         with:
-            robot_reports_dir: 'reports' #Location of report output from test execution
+          robot_reports_dir: 'reports' #Location of report output from test execution
 
-        name: Upload Results
+      - name: Upload Results
         uses: actions/Upload-artifact@v2
         if: always()
         with:
