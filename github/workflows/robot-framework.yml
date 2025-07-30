@@ -1,21 +1,23 @@
-name: Testes Robot Framework
+name: Testes rbrobot framework
 on: [push, pull_request]
 
-jobs: 
-  Test:
-    runs-on: ubuntu-lastest
-steps:
+jobs:
+  Testes:
+  
+    runs-on: ubuntu-latest
+    name: Run Robot Framework Tests
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Robot Framework
         uses: joonvena/robotframework-docker-action@v1.0
-        with: 
-          robot_reports_dir: 'reports'
-      
-      - name: Resultado dos uploads de testes
-        use: action/upload-artifact2@v2
+        with:
+            robot_reports_dir: 'reports' #Location of report output from test execution
+
+        name: Upload Results
+        uses: actions/Upload-artifact@v2
         if: always()
         with:
-          name: robotReport
-          path: reports    
+          name: Report robot
+          path: reports
