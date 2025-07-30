@@ -10,7 +10,7 @@ ${BaseURl}     https://restful-booker.herokuapp.com/booking
 
 Step1 : Incluir as informacoes no create Dictionary, no json tem 2 Dictionary
     ${bookingdates}=  Create Dictionary  checkin=2018-01-01  checkout=2019-01-01        
-    ${data}=  Create Dictionary  firstname=Samuel  lastname=Rodrigues  totalprice=220  depositpaid=true  bookingdates=${bookingdates}  additionalneeds=Breakfast    
+    ${data}=  Create Dictionary  firstname=Samuel  lastname=Rodrigues  totalprice=250  depositpaid=true  bookingdates=${bookingdates}  additionalneeds=Breakfast    
     Log  ${data}  #so loga as informacoes da reserva
     Set Global Variable    ${data}
 Step2: Validacoes informacoes na requisicao

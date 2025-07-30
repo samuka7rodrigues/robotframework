@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Robot Framework
-        uses: joonvena/robotframework-docker-action@v1.0
+        uses: joonvena/robotframework-docker-action@v1.0 #valida o que esta na pasta robot_tests por conta do framework no marktplace
         with:
           robot_reports_dir: 'reports'
 
