@@ -29,6 +29,6 @@ Plano de testes
     Step 1: Criar um token com os parametros (DICTIONARY)
     Step 2: Fazer a chamada, o response vai receber o resultado do request
     Step 3: Pegar a informacao da resposta
-    Step 4: Printar a informacao do token e validar
+    Step 4: Printar as informacao do token e validar
 
     
