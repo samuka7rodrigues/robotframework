@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.1 (Python 3.13.3 on win32)" generated="2025-07-30T20:59:35.729678" rpa="false" schemaversion="5">
+<suite id="s1" name="buscareservaKeyword" source="C:\robotapi\robot_tests\buscareservaKeyword.robot">
+<test id="s1-t1" name="Cenário 1: Consultar as reservas cadastradas firstname" line="16">
+<kw name="Buscar reserva">
+<msg time="2025-07-30T20:59:36.303313" level="FAIL">User keyword cannot be empty.</msg>
+<var>${response}</var>
+<arg>243</arg>
+<status status="FAIL" start="2025-07-30T20:59:36.303262" elapsed="0.000111">User keyword cannot be empty.</status>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${firstnamevalue}</var>
+<arg>${response.json()}</arg>
+<arg>firstname</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-07-30T20:59:36.303939" elapsed="0.000034"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${firstnamevalue}</arg>
+<arg>Josh</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-07-30T20:59:36.304284" elapsed="0.000025"/>
+</kw>
+<status status="FAIL" start="2025-07-30T20:59:36.302228" elapsed="0.002366">User keyword cannot be empty.</status>
+</test>
+<test id="s1-t2" name="Cenário 2: Consultar as reservas cadastradas lastname" line="21">
+<kw name="Buscar reserva">
+<msg time="2025-07-30T20:59:36.306095" level="FAIL">User keyword cannot be empty.</msg>
+<var>${response}</var>
+<arg>243</arg>
+<status status="FAIL" start="2025-07-30T20:59:36.306063" elapsed="0.000069">User keyword cannot be empty.</status>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${lastnamevalue}</var>
+<arg>${response.json()}</arg>
+<arg>lastname</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-07-30T20:59:36.306294" elapsed="0.000018"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${lastnamevalue}</arg>
+<arg>Allen</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-07-30T20:59:36.306442" elapsed="0.000018"/>
+</kw>
+<status status="FAIL" start="2025-07-30T20:59:36.305725" elapsed="0.000892">User keyword cannot be empty.</status>
+</test>
+<status status="FAIL" start="2025-07-30T20:59:35.731337" elapsed="0.576488"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="buscareservaKeyword" id="s1" pass="0" fail="2" skip="0">buscareservaKeyword</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-07-30T20:59:35.723878" level="WARN">Error in file 'C:\robotapi\robot_tests\buscareservaKeyword.robot' on line 13: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
