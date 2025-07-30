@@ -1,9 +1,9 @@
-name: Testes rbrobot framework
+name: Testes robot framework
 on: [push, pull_request]
 
 jobs:
   Testes:
-  
+
     runs-on: ubuntu-latest
     name: Run Robot Framework Tests
     steps:
