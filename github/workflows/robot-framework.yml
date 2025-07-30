@@ -1,4 +1,4 @@
-name: Run Robot Framework Tests
+name: Testes Robot Framework
 on: [push, pull_request]
 
 jobs: 
@@ -18,4 +18,4 @@ steps:
         if: always()
         with:
           name: robotReport
-          path: reports
+          path: reports    
