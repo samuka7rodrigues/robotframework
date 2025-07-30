@@ -1,5 +1,7 @@
 name: Testes robot framework
-on: [push, pull_request]
+on: 
+  pull_request: 
+    branch: [main, master]
 
 jobs:
   Testes:
@@ -20,3 +22,4 @@ jobs:
         with:
           name: Report robot
           path: reports
+          retention-days: 2
