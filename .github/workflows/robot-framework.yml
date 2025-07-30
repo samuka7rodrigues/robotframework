@@ -12,14 +12,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Robot Framework
-        uses: joonvena/robotframework-docker-action@v1.0 #valida o que esta na pasta robot_tests por conta do framework no marktplace
+        uses: joonvena/robotframework-docker-action@v1.0 # PEGA o que esta na pasta robot_tests MARKET
         with:
           robot_reports_dir: 'reports'
-
-      - name: Upload Results
+      - name: Resultado do testes
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Report robot
+          name: Report do Robot
           path: reports
           retention-days: 2
